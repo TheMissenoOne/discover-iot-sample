@@ -44,35 +44,7 @@
 		return ((shifted_filter[channel]+128)/256);    
 	}
 
-	function deviceMotionHandler(eventData) {
-		var info, xyz = "[X, Y, Z]";
-	  
-		// Grab the acceleration from the results
-		var acceleration = eventData.acceleration;
-		info = xyz.replace("X", acceleration.x);
-		info = info.replace("Y", acceleration.y);
-		info = info.replace("Z", acceleration.z);
-		window.alert(info);
-	  
-		// Grab the acceleration including gravity from the results
-		acceleration = eventData.accelerationIncludingGravity;
-		info = xyz.replace("X", acceleration.x);
-		info = info.replace("Y", acceleration.y);
-		info = info.replace("Z", acceleration.z);
-		window.alert(info);
-	  
-		// Grab the rotation rate from the results
-		var rotation = eventData.rotationRate;
-		info = xyz.replace("X", rotation.alpha);
-		info = info.replace("Y", rotation.beta);
-		info = info.replace("Z", rotation.gamma);
-		window.alert(info);
-	  
-		// // Grab the refresh interval from the results
-		info = eventData.interval;
-		window.alert(info);       
-	  }
-
+	
 	window.ondevicemotion = function(event) {
 		ax = parseFloat((event.acceleration.x || filterOffset(event.accelerationIncludingGravity.x, "ax") || 0));
 		ay = parseFloat((event.acceleration.y || filterOffset(event.accelerationIncludingGravity.y, "ay") || 0));
